@@ -41,7 +41,7 @@
 
 		<p>Visit <a href="admin">admin module</a> to see backend.</p>
 		<p>Credentials is "admin" / "SleepingOwl".</p>
-		<p>Source of the demo is available on <a href="https://github.com/sleeping-owl/admin-demo">GitHub</a></p>
+		<p>Source of the demo is available on <a href="https://github.com/sleeping-owl/admin-demo">GitHub</a>.</p>
 	</div>
 </body>
 </html>
