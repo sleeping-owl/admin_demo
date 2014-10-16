@@ -21,4 +21,5 @@ Admin::model(Contact::class)->title('Contacts')->with('country', 'companies')->f
 	FormItem::select('country_id', 'Country')->list(Country::class);
 	FormItem::multiSelect('companies', 'Companies')->list(Company::class)->value('companies.company_id');
 	FormItem::ckeditor('comment', 'Comment');
+	FormItem::view('admin.form.comment');
 });

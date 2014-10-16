@@ -10,7 +10,14 @@ class AdminController extends \Controller
 
 	public function getSecond()
 	{
-		return View::make('admin.second');
+		$method = str_replace('::', '@', __METHOD__);
+		return View::make('admin.second', compact('method'));
+	}
+
+	public function getThird()
+	{
+		$method = str_replace('::', '@', __METHOD__);
+		return View::make('admin.second', compact('method'));
 	}
 
 } 

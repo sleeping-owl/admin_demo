@@ -16,7 +16,11 @@
  */
 
 Admin::menu()->url('/')->label('Start page')->icon('fa-dashboard')->uses('AdminController@getIndex');
-Admin::menu()->url('my_second_admin_page')->label('Custom admin page')->uses('AdminController@getSecond');
 Admin::menu(Contact::class)->icon('fa-users');
 Admin::menu(Company::class)->icon('fa-building');
 Admin::menu(Country::class)->icon('fa-globe');
+Admin::menu()->label('Custom')->icon('fa-bookmark')->items(function ()
+{
+	Admin::menu()->url('my_second_admin_page')->label('Custom admin page')->uses('AdminController@getSecond');
+	Admin::menu()->url('subdir/demo')->label('Custom url')->uses('AdminController@getThird');
+});

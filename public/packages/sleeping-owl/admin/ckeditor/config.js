@@ -36,6 +36,6 @@ CKEDITOR.editorConfig = function (config) {
 
 	CKEDITOR.config.simpleImageBrowserURL = '/images/all';
 	CKEDITOR.config.language = window.admin.locale;
-	config.filebrowserImageUploadUrl = '/images/upload';
+	//config.filebrowserImageUploadUrl = '/images/upload';
 };
 

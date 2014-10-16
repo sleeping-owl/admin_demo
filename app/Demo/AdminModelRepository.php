@@ -12,34 +12,34 @@ use SleepingOwl\Admin\Repositories\ModelRepository;
 
 class AdminModelRepository extends ModelRepository
 {
-	protected $message = 'This is a demo application. You can\'t create, edit or destroy entries.';
+	protected $message = 'This is a demo application. You can\'t create, edit or delete entries.';
 
 	protected function save()
 	{
 		// Perform save in transaction, so we can load instance as it been saved successfully and rollback changes.
 		DB::beginTransaction();
 		parent::save();
-		if ($this->instance instanceof \Contact)
-		{
-			$this->instance = $this->instance->with('country', 'companies')->find($this->instance->id);
-		}
-		if ($this->instance instanceof \Company)
-		{
-			$this->instance = $this->instance->with('contacts')->find($this->instance->id);
-		}
+		$this->instance = $this->instance->with($this->modelItem->getWith())->find($this->instance->id);
 		DB::rollBack();
 		if ($photo = $this->instance->photo)
 		{
 			// Delete uploaded file
 			$photo->delete();
 		}
-		Session::flash('message', $this->message . '<br/><br/>You have tried to save this object into database:<br/><br/>' . $this->instance);
+		$this->setMessage($this->instance);
 	}
 
 	public function destroy($id)
 	{
 		$object = $this->find($id);
-		Session::flash('message', $this->message . '<br/><br/>You have tried to delete this object:<br/><br/>' . $object);
+		$this->setMessage($object);
+	}
+
+	protected function setMessage($instance)
+	{
+		$message = $this->message . '<br/><br/>You have tried to create, edit or delete this object:<br/><br/>';
+		$message .= '<pre>' . htmlentities(json_encode($instance, JSON_PRETTY_PRINT)) . '</pre>';
+		Session::flash('message', $message);
 	}
 
 }
