@@ -2,7 +2,7 @@
 
 This is demo application for [SleepingOwl Admin](http://sleeping-owl.github.io).
 
-You can watch live [demo-site](http://sleeping-owl-demo.gopagoda.com).
+You can watch live [demo-site](http://sleeping-owl-admin-demo.gopagoda.com).
 
 ## Documentation
 
