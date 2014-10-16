@@ -11,6 +11,6 @@
 				<li><code>Country</code> &mdash; contains title, "has-many" relation with contacts</li>
 			</ul>
 		</p>
-		<p>Source of the demo is available on <a href="https://github.com/sleeping-owl/admin-demo">GitHub</a>.</p>
+		<p>Source of the demo is available on <a href="https://github.com/sleeping-owl/admin_demo">GitHub</a>.</p>
 	</div>
 </div>
