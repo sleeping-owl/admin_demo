@@ -8,7 +8,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"sleeping-owl/admin": "1.*"
+		"sleeping-owl/admin": "1.*",
+		"fzaninotto/faker": "1.5.*@dev"
 	},
 	"autoload": {
 		"psr-4": {
@@ -42,7 +43,6 @@
 	"minimum-stability": "stable",
 	"require-dev": {
 		"way/generators": "3.*",
-		"fzaninotto/faker": "1.5.*@dev",
 		"barryvdh/laravel-ide-helper": "1.*"
 	}
 }
