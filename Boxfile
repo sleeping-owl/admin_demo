@@ -24,6 +24,7 @@ web1:
     - "php artisan cache:clear"
     - "rm -f app/storage/views/*"
   before_deploy:
-    - "php artisan migrate"
+    - "php artisan migrate --seed"
+    - "php artisan db:seed --class="\SleepingOwl\AdminAuth\Database\Seeders\AdministratorsTableSeeder\""
 cache1:
   type: redis
