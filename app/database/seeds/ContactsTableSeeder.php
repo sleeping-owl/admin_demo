@@ -10,7 +10,7 @@ class ContactsTableSeeder extends Seeder
 	{
 		$faker = Faker::create();
 
-		$files = \Symfony\Component\Finder\Finder::create()->files()->in(public_path('images/contacts/seeds'));
+		$files = [];// \Symfony\Component\Finder\Finder::create()->files()->in(public_path('images/contacts/seeds'));
 		$photos = [];
 		foreach ($files as $file)
 		{
