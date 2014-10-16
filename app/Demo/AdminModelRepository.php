@@ -21,11 +21,6 @@ class AdminModelRepository extends ModelRepository
 		parent::save();
 		$this->instance = $this->instance->with($this->modelItem->getWith())->find($this->instance->id);
 		DB::rollBack();
-		if ($photo = $this->instance->photo)
-		{
-			// Delete uploaded file
-			$photo->delete();
-		}
 		$this->setMessage($this->instance);
 	}
 

@@ -3,6 +3,7 @@
 use SleepingOwl\Models\Interfaces\ModelWithImageFieldsInterface;
 use SleepingOwl\Models\SleepingOwlModel;
 use SleepingOwl\Models\Traits\ModelWithImageOrFileFieldsTrait;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Contact extends SleepingOwlModel implements ModelWithImageFieldsInterface
 {
@@ -73,6 +74,21 @@ class Contact extends SleepingOwlModel implements ModelWithImageFieldsInterface
 		if ( ! $this->exists) $this->save();
 
 		$this->companies()->attach($companies);
+	}
+
+	/*
+	 * This is only for demo application to disable file uploads
+	 */
+	public function setImage($field, $image)
+	{
+		if ($image == null) return;
+		$filename = $image;
+		if ($image instanceof UploadedFile)
+		{
+			$filename = $this->getFilenameFromFile($field, $image);
+			$this->$field->setFilename($filename);
+		}
+		$this->attributes[$field] = $filename;
 	}
 
 }
