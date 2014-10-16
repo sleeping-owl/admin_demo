@@ -18,6 +18,8 @@ web1:
     - app/storage/views
     - public/images/uploads
     - public/images/contacts
+    - public/images/contacts/seeds
+    - public/images
   after_build:
     - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install --prefer-source --no-progress --no-dev"
   after_deploy:
