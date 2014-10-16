@@ -2,6 +2,7 @@ web1:
   document_root: public
   php_version: 5.4.14
   php_extensions:
+    - gd
     - intl
     - mbstring
     - mcrypt
