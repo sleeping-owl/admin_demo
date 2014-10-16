@@ -2,7 +2,7 @@
 
 Admin::model('\Contact')->title('Contacts')->with('country', 'companies')->filters(function ()
 {
-	ModelItem::filter('country_id')->title()->from(Country::class);
+	ModelItem::filter('country_id')->title()->from(\'Country');
 })->columns(function ()
 {
 	Column::image('photo')->sortable(false);
