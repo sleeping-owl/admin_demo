@@ -123,8 +123,8 @@ return [
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'SleepingOwl\Admin\AdminServiceProvider',
-		'Way\Generators\GeneratorsServiceProvider',
-		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		//'Way\Generators\GeneratorsServiceProvider',
+		//'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Demo\DemoServiceProvider'
 	],
 
