@@ -1,6 +1,6 @@
 <?php
 
-Admin::model(Company::class)->title('Companies')->with('contacts')->filters(function ()
+Admin::model('\Company')->title('Companies')->with('contacts')->filters(function ()
 {
 
 })->columns(function ()

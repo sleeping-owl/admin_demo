@@ -1,6 +1,6 @@
 <?php
 
-Admin::model(Contact::class)->title('Contacts')->with('country', 'companies')->filters(function ()
+Admin::model('\Contact')->title('Contacts')->with('country', 'companies')->filters(function ()
 {
 	ModelItem::filter('country_id')->title()->from(Country::class);
 })->columns(function ()
@@ -18,8 +18,8 @@ Admin::model(Contact::class)->title('Contacts')->with('country', 'companies')->f
 	FormItem::date('birthday', 'Birthday');
 	FormItem::text('phone', 'Phone');
 	FormItem::text('address', 'Address');
-	FormItem::select('country_id', 'Country')->list(Country::class);
-	FormItem::multiSelect('companies', 'Companies')->list(Company::class)->value('companies.company_id');
+	FormItem::select('country_id', 'Country')->list('\Country');
+	FormItem::multiSelect('companies', 'Companies')->list('\Company')->value('companies.company_id');
 	FormItem::ckeditor('comment', 'Comment');
 	FormItem::view('admin.form.comment');
 });
