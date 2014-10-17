@@ -1,9 +1,6 @@
 <?php
 
-Admin::model('\Country')->title('Countries')->with('contacts')->filters(function ()
-{
-
-})->columns(function ()
+Admin::model('\Country')->title('Countries')->with('contacts')->columns(function ()
 {
 	Column::string('title', 'Title');
 	Column::count('contacts', 'Contacts')->append(Column::filter('country_id')->model('\Contact'));
