@@ -1,9 +1,6 @@
 <?php
 
-Admin::model('\Company')->title('Companies')->with('contacts')->filters(function ()
-{
-
-})->columns(function ()
+Admin::model('\Company')->title('Companies')->with('contacts')->columns(function ()
 {
 	Column::string('title', 'Title');
 	Column::string('address', 'Address');
