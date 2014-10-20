@@ -81,4 +81,9 @@ class Contact extends SleepingOwlModel implements ModelWithImageFieldsInterface
 		$this->attributes[$field] = $filename;
 	}
 
+	public function scopeWithoutCompanies($query)
+	{
+		return $query->whereRaw('(select count(*) from company_contact where contact_id=contacts.id)=0');
+	}
+
 }
