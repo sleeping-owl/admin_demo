@@ -12,13 +12,13 @@ Admin::model('\Contact')->title('Contacts')->with('country', 'companies')->filte
 	Column::lists('companies.title', 'Companies');
 })->form(function ()
 {
-	FormItem::text('firstName', 'First Name');
-	FormItem::text('lastName', 'Last Name');
+	FormItem::text('firstName', 'First Name')->required();
+	FormItem::text('lastName', 'Last Name')->required();
 	FormItem::image('photo', 'Photo');
 	FormItem::date('birthday', 'Birthday');
 	FormItem::text('phone', 'Phone');
 	FormItem::text('address', 'Address');
-	FormItem::select('country_id', 'Country')->list('\Country');
+	FormItem::select('country_id', 'Country')->list('\Country')->required();
 	FormItem::multiSelect('companies', 'Companies')->list('\Company')->value('companies.company_id');
 	FormItem::ckeditor('comment', 'Comment');
 	FormItem::view('admin.form.comment');

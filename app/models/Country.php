@@ -7,13 +7,6 @@ class Country extends SleepingOwlModel
 
 	protected $fillable = ['title'];
 
-	public function getValidationRules()
-	{
-		return [
-			'title' => 'required|unique:countries,title'
-		];
-	}
-
 	protected $hidden = [
 		'created_at',
 		'updated_at'

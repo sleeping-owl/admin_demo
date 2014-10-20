@@ -11,7 +11,7 @@ Admin::model('\Company')->title('Companies')->with('contacts')->filters(function
 	Column::lists('contacts.full_name', 'Contacts');
 })->form(function ()
 {
-	FormItem::text('title', 'Title');
+	FormItem::text('title', 'Title')->required()->unique();
 	FormItem::text('address', 'Address');
 	FormItem::text('phone', 'Phone');
 });

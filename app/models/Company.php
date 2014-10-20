@@ -16,13 +16,6 @@ class Company extends SleepingOwlModel
 		'updated_at'
 	];
 
-	public function getValidationRules()
-	{
-		return [
-			'title' => 'required|unique:companies,title'
-		];
-	}
-
 	public function scopeDefaultSort($query)
 	{
 		return $query->orderBy('title', 'asc');

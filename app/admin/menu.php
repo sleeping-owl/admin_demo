@@ -14,7 +14,6 @@
  * 			Admin::menu()->url('my-page')->label('My custom page')->uses('\MyController@getMyPage');
  * 		});
  */
-
 Admin::menu()->url('/')->label('Start page')->icon('fa-dashboard')->uses('AdminController@getIndex');
 Admin::menu('\Contact')->icon('fa-users');
 Admin::menu('\Company')->icon('fa-building');

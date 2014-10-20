@@ -26,16 +26,6 @@ class Contact extends SleepingOwlModel implements ModelWithImageFieldsInterface
 		'updated_at'
 	];
 
-	public function getValidationRules()
-	{
-		return [
-			'firstName'  => 'required',
-			'lastName'   => 'required',
-			'photo'      => 'image',
-			'country_id' => 'required|exists:countries,id'
-		];
-	}
-
 	public function getImageFields()
 	{
 		return [
