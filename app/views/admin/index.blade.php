@@ -20,7 +20,6 @@
 <div class="row">
 	<h2>Simple Dashboard Demo</h2>
 </div>
-
 <div class="row">
 	<div class="col-lg-3 col-md-6">
 		<div class="panel panel-red">
