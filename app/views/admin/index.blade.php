@@ -46,24 +46,31 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-lg-4">
-    	<div class="panel panel-default">
-    		<div class="panel-heading">
-    			<i class="fa fa-bar-chart-o fa-fw"></i> Contacts by Countries
-    		</div>
-    		<div class="panel-body">
-    			<div id="chart"></div>
-    			<a href="{{{ Admin::instance()->router->routeToModel('contacts') }}}" class="btn btn-default btn-block">Details</a>
-    		</div>
-    	</div>
-    </div>
-    <script>
-    	$(function() {
-    		Morris.Donut({
-    			element: 'chart',
-    			data: <?=json_encode($contactsCountByCountry)?>,
-    			resize: true
-    		});
-    	});
-    </script>
+	@include('admin._partials.index_info_block', ['title' => $contactsCount,
+		'label' => 'Contacts',
+		'model' => 'contacts',
+		'style' => 'primary',
+		'icon' => 'fa-users'])
+	@include('admin._partials.index_info_block', ['title' => $companiesCount,
+		'label' => 'Companies',
+		'model' => 'companies',
+		'style' => 'green',
+		'icon' => 'fa-building'])
+	@include('admin._partials.index_info_block', ['title' => $countriesCount,
+		'label' => 'Countries',
+		'model' => 'countries',
+		'style' => 'yellow',
+		'icon' => 'fa-globe'])
+</div>
+<div class="row">
+	@include('admin._partials.index_chart_block', ['label' => 'Country contacts count',
+		'model' => 'contacts',
+		'data' => $contactsByCountries,
+		'color' => '#428bca',
+		'chartId' => 'contacts-count-by-countries-chart'])
+	@include('admin._partials.index_chart_block', ['label' => 'Company contacts count',
+		'model' => 'companies',
+		'data' => $contactsByCompanies,
+		'color' => '#5cb85c',
+		'chartId' => 'contacts-count-by-companies-chart'])
 </div>

@@ -7,17 +7,33 @@ class AdminController extends \Controller
 	{
 		$contactsWithoutCompaniesCount = Contact::withoutCompanies()->count();
 
-		$contactsCountByCountry = [];
+		$contactsByCountries = [];
 		$rows = Country::with('contacts')->get();
 		foreach ($rows as $row)
 		{
 			$obj = new StdClass;
 			$obj->label = $row->title;
 			$obj->value = $row->contacts->count();
-			$contactsCountByCountry[] = $obj;
+			$contactsByCountries[] = $obj;
 		}
 
-		return View::make('admin.index', compact('contactsWithoutCompaniesCount', 'contactsCountByCountry'));
+		$contactsByCompanies = [];
+		$rows = Company::with('contacts')->get();
+		foreach ($rows as $row)
+		{
+			$obj = new StdClass;
+			$obj->label = $row->title;
+			$obj->value = $row->contacts->count();
+			$contactsByCompanies[] = $obj;
+		}
+
+		$contactsCount = Contact::count();
+		$companiesCount = Company::count();
+		$countriesCount = Country::count();
+
+		$data = compact('contactsWithoutCompaniesCount', 'contactsByCompanies', 'contactsByCountries', 'contactsCount', 'companiesCount', 'countriesCount');
+
+		return View::make('admin.index', $data);
 	}
 
 	public function getSecond()
