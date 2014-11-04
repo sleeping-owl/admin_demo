@@ -11,6 +11,11 @@ Admin::model('\Contact')->title('Contacts')->with('country', 'companies')->filte
 	Column::date('birthday', 'Birthday')->format('medium', 'none');
 	Column::string('country.title', 'Country')->append(Column::filter('country_id')->value('country.id'));
 	Column::lists('companies.title', 'Companies');
+	Column::action('show', 'Custom action')->target('_blank')->icon('fa-globe')->style('long')->callback(function ($instance)
+	{
+		echo 'You are trying to call custom action "show" with row id "' . $instance->id . '"';
+		die;
+	});
 })->form(function ()
 {
 	FormItem::text('firstName', 'First Name')->required();
