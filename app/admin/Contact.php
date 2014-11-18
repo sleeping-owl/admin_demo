@@ -6,7 +6,7 @@ Admin::model('\Contact')->title('Contacts')->with('country', 'companies')->filte
 	ModelItem::filter('withoutCompanies')->scope('withoutCompanies')->title('without companies');
 })->columns(function ()
 {
-	Column::image('photo')->sortable(false);
+	Column::image('photo');
 	Column::string('full_name', 'Name')->orderBy('lastName')->sortableDefault();
 	Column::date('birthday', 'Birthday')->format('medium', 'none');
 	Column::string('country.title', 'Country')->append(Column::filter('country_id')->value('country.id'));
