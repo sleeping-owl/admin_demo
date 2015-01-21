@@ -71,7 +71,7 @@ class Contact extends SleepingOwlModel implements ModelWithImageFieldsInterface
 	 */
 	public function setImage($field, $image)
 	{
-		if ($image == null) return;
+		if (is_null($image)) return;
 		$filename = $image;
 		if ($image instanceof UploadedFile)
 		{
