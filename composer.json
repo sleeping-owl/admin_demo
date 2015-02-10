@@ -9,6 +9,7 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"sleeping-owl/admin": "1.*",
+		"sleeping-owl/route-priority": "1.*",
 		"fzaninotto/faker": "1.5.*@dev"
 	},
 	"autoload": {
