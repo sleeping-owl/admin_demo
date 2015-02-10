@@ -123,9 +123,10 @@ return [
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'SleepingOwl\Admin\AdminServiceProvider',
+		'SleepingOwl\RoutePriority\RoutePriorityServiceProvider',
 		//'Way\Generators\GeneratorsServiceProvider',
 		//'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-		'Demo\DemoServiceProvider'
+		//'Demo\DemoServiceProvider'
 	],
 
 	/*

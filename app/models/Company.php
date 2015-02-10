@@ -5,6 +5,16 @@ use SleepingOwl\Models\SleepingOwlModel;
 class Company extends SleepingOwlModel
 {
 
+	public static function boot()
+	{
+		parent::boot();
+
+		static::deleting(function ($item)
+		{
+			dd('Deleting event handler executed on item #' . $item->id);
+		});
+	}
+
 	protected $fillable = [
 		'title',
 		'address',
