@@ -75,7 +75,7 @@ class Contact extends SleepingOwlModel implements ModelWithImageFieldsInterface
 		$filename = $image;
 		if ($image instanceof UploadedFile)
 		{
-			$filename = $this->getFilenameFromFile($field, $image);
+			$filename = $this->getFilenameFromFile(null, $field, $image);
 			$this->$field->setFilename($filename);
 		}
 		$this->attributes[$field] = $filename;
