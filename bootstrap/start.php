@@ -29,7 +29,7 @@ $env = $app->detectEnvironment(array(
 	'local' => array('homestead', 'mac.local'),
 
 ));
-$env = 'local';
+
 /*
 |--------------------------------------------------------------------------
 | Bind Paths
