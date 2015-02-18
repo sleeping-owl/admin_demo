@@ -126,7 +126,7 @@ return [
 		'SleepingOwl\RoutePriority\RoutePriorityServiceProvider',
 		//'Way\Generators\GeneratorsServiceProvider',
 		//'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-		//'Demo\DemoServiceProvider'
+		'Demo\DemoServiceProvider'
 	],
 
 	/*
