@@ -76,6 +76,7 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      => ! is_null($host) ? $host : getenv('DB_HOST'),
+			'port'      => ! is_null($port) ? $port : getenv('DB_PORT'),
 			'database'  => ! is_null($database) ? $database : getenv('DB_NAME'),
 			'username'  => ! is_null($username) ? $username : getenv('DB_USERNAME'),
 			'password'  => ! is_null($password) ? $password : getenv('DB_PASSWORD'),
