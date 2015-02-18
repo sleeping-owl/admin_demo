@@ -1,6 +1,27 @@
 <?php
 
-return array(
+$database = null;
+$host = null;
+$port = null;
+$username = null;
+$password = null;
+
+if (isset($_ENV['CRED_FILE']))
+{
+	$creds_string = file_get_contents($_ENV['CRED_FILE'], false);
+	if ($creds_string == false)
+	{
+		die('FATAL: Could not read credentials file');
+	}
+	$creds = json_decode($creds_string, true);
+	$database = $creds['MYSQLS']['MYSQLS_DATABASE'];
+	$host = $creds['MYSQLS']['MYSQLS_HOSTNAME'];
+	$port = $creds['MYSQLS']['MYSQLS_PORT'];
+	$username = $creds['MYSQLS']['MYSQLS_USERNAME'];
+	$password = $creds['MYSQLS']['MYSQLS_PASSWORD'];
+}
+
+return [
 
 	/*
 	|--------------------------------------------------------------------------
@@ -44,26 +65,26 @@ return array(
 	|
 	*/
 
-	'connections' => array(
+	'connections' => [
 
-		'sqlite' => array(
+		'sqlite' => [
 			'driver'   => 'sqlite',
 			'database' => __DIR__.'/../database/production.sqlite',
 			'prefix'   => '',
-		),
+		],
 
-		'mysql' => array(
+		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => isset($_SERVER['DB1_HOST']) ? $_SERVER['DB1_HOST'] : getenv('DB_HOST'),
-			'database'  => isset($_SERVER['DB1_NAME']) ? $_SERVER['DB1_NAME'] : getenv('DB_NAME'),
-			'username'  => isset($_SERVER['DB1_USER']) ? $_SERVER['DB1_USER'] : getenv('DB_USERNAME'),
-			'password'  => isset($_SERVER['DB1_PASS']) ? $_SERVER['DB1_PASS'] : getenv('DB_PASSWORD'),
+			'host'      => ! is_null($host) ? $host : getenv('DB_HOST'),
+			'database'  => ! is_null($database) ? $database : getenv('DB_NAME'),
+			'username'  => ! is_null($username) ? $username : getenv('DB_USERNAME'),
+			'password'  => ! is_null($password) ? $password : getenv('DB_PASSWORD'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-		),
+		],
 
-		'pgsql' => array(
+		'pgsql' => [
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
 			'database' => 'forge',
@@ -72,18 +93,18 @@ return array(
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
-		),
+		],
 
-		'sqlsrv' => array(
+		'sqlsrv' => [
 			'driver'   => 'sqlsrv',
 			'host'     => 'localhost',
 			'database' => 'database',
 			'username' => 'root',
 			'password' => '',
 			'prefix'   => '',
-		),
+		],
 
-	),
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -109,16 +130,16 @@ return array(
 	|
 	*/
 
-	'redis' => array(
+	'redis' => [
 
 		'cluster' => false,
 
-		'default' => array(
+		'default' => [
 			'host'     => '127.0.0.1',
 			'port'     => 6379,
 			'database' => 0,
-		),
+		],
 
-	),
+	],
 
-);
+];

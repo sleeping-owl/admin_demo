@@ -35,7 +35,6 @@
 	</style>
 </head>
 <body>
-<?php dd($_ENV); ?>
 	<div class="welcome">
 		<h1>This is a simple SleepingOwl Admin demo application.</h1>
 		<h2>There is no frontend in this application.</h2>
